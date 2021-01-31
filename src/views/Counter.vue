@@ -52,6 +52,9 @@
         alt="sailor moon cosplay"
         class="sass-block__img"
       />
+      <button class="sass-block__cta" @click="notifyClick('cta clicked')">
+        Click Me
+      </button>
     </div>
   </div>
 </template>
@@ -74,9 +77,13 @@ export default {
       return !validMultiplierInput;
     });
 
+    const notifyClick = msg => {
+      alert(msg);
+    };
     return {
       ...toRefs(state),
-      inputError
+      inputError,
+      notifyClick
     };
   }
 };
@@ -84,13 +91,15 @@ export default {
 
 <style lang="scss" scoped>
 .sass-block {
-  padding: 500px 100px;
+  padding: 30px 500px;
   background: rgb(224, 203, 175);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
     "header header header"
-    "body body image";
+    "body body image"
+    "cta cta image";
+  @apply gap-5;
 
   &__title {
     font-size: 20px;
@@ -109,6 +118,11 @@ export default {
     height: 300px;
     width: 300px;
     grid-area: image;
+  }
+
+  &__cta {
+    grid-area: cta;
+    @apply py-2 px-4 bg-indigo-500 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75;
   }
 }
 </style>
