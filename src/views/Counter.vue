@@ -33,6 +33,27 @@
       </p>
     </div>
   </div>
+  <div>
+    <h1>Sass Block</h1>
+    <div class="sass-block">
+      <h2 class="sass-block__title">
+        Lorem ipsum dolor sit.
+      </h2>
+      <p class="sass-block__content">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        Exercitationem, laudantium? Sapiente, modi enim rem itaque laudantium
+        accusantium! Consectetur vitae labore fuga aliquid fugit nesciunt enim.
+        Culpa nisi ad quas totam voluptate dicta accusantium commodi minus dolor
+        laudantium placeat quae explicabo, numquam doloribus facere cum pariatur
+        dignissimos quam impedit eligendi voluptates?
+      </p>
+      <img
+        src="https://www.rd.com/wp-content/uploads/2020/07/35_No-regrets-1.jpg"
+        alt="sailor moon cosplay"
+        class="sass-block__img"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -61,4 +82,33 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.sass-block {
+  padding: 500px 100px;
+  background: rgb(224, 203, 175);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "header header header"
+    "body body image";
+
+  &__title {
+    font-size: 20px;
+    font-weight: 900;
+    grid-area: header;
+  }
+  &__content {
+    line-height: 2rem;
+    font-weight: normal;
+    font-size: 1.2rem;
+    grid-area: body;
+  }
+
+  &__img {
+    display: block;
+    height: 300px;
+    width: 300px;
+    grid-area: image;
+  }
+}
+</style>
